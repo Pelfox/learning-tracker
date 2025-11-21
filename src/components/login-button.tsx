@@ -3,7 +3,7 @@ import { useAuth } from '../hooks/use-auth-hook';
 import { Button } from './ui/button';
 
 export function LoginButton() {
-  const { isLoggedIn, state: authState } = useAuth();
+  const { isLoggedIn, state: authState, logout } = useAuth();
 
   if (!isLoggedIn || !authState) {
     return (
@@ -13,9 +13,5 @@ export function LoginButton() {
     );
   }
 
-  return (
-    <Button asChild>
-      <Link to="/dashboard">{authState?.username}</Link>
-    </Button>
-  );
+  return <Button onClick={() => logout()}>Выйти</Button>;
 }

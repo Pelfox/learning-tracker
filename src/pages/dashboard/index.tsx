@@ -1,0 +1,41 @@
+import { Link } from 'react-router-dom';
+import { ProgressIndicator } from '../../components/dashboard/progress-indicator';
+import { QuickActions } from '../../components/dashboard/quick-actions';
+import { TechnologyCard } from '../../components/dashboard/technology-item';
+import { PageWrapper } from '../../components/page-wrapper';
+import { ProtectedPage } from '../../components/protected-page';
+import { Button } from '../../components/ui/button';
+import { useTechnologies } from '../../hooks/use-technologies-hook';
+
+export function DashboardPage() {
+  const { technologies } = useTechnologies();
+
+  return (
+    <PageWrapper>
+      <ProtectedPage>
+        <header className="flex items-start justify-start w-full gap-3">
+          <QuickActions />
+          <ProgressIndicator />
+        </header>
+        <div className="w-full mt-8">
+          <div className="flex items-center justify-between w-full">
+            <h1 className="text-xl font-semibold leading-tight">
+              Список технологий
+            </h1>
+            <Button type="button" asChild>
+              <Link to="/add-technology">Добавить технологию</Link>
+            </Button>
+          </div>
+          <div className="mt-4 grid grid-cols-3 gap-3">
+            {technologies.length === 0 && (
+              <p className="text-sm">Нет технологий для отображения.</p>
+            )}
+            {technologies.map((item) => (
+              <TechnologyCard key={item.id} {...item} />
+            ))}
+          </div>
+        </div>
+      </ProtectedPage>
+    </PageWrapper>
+  );
+}
