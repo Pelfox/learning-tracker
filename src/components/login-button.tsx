@@ -15,7 +15,7 @@ export function LoginButton() {
 
   return (
     <Button asChild>
-      <Link to="/">{authState?.username}</Link>
+      <Link to="/dashboard">{authState?.username}</Link>
     </Button>
   );
 }

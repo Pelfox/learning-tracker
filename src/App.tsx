@@ -6,6 +6,7 @@ import {
   NavbarMenuLink,
 } from './components/navbar/navbar-menu';
 import { IndexPage } from './pages';
+import { DashboardPage } from './pages/dashboard';
 import { LoginPage } from './pages/login';
 import './App.css';
 
@@ -18,19 +19,20 @@ export default function App() {
         </span>
         <NavbarMenuContainer>
           <NavbarMenuLink to="/">Главная</NavbarMenuLink>
-          <NavbarMenuLink to="/technologies">Все технологии</NavbarMenuLink>
-          <NavbarMenuLink to="/settings">Настройки</NavbarMenuLink>
+          <NavbarMenuLink to="/dashboard/technologies">
+            Все технологии
+          </NavbarMenuLink>
+          <NavbarMenuLink to="/dashboard/settings">Настройки</NavbarMenuLink>
         </NavbarMenuContainer>
         <div>
           <LoginButton />
         </div>
       </NavbarContainer>
-      <main className="container mx-auto max-w-5xl flex-1 flex flex-col items-center justify-center">
-        <Routes>
-          <Route path="/" element={<IndexPage />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<IndexPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+      </Routes>
     </div>
   );
 }
