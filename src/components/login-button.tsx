@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useAuth } from './hooks/use-auth-hook';
+import { useAuth } from '../hooks/use-auth-hook';
 import { Button } from './ui/button';
 
 export function LoginButton() {
