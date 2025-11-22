@@ -25,7 +25,7 @@ export function QuickActions() {
 
   return (
     <>
-      <Card className="p-4">
+      <Card className="p-4 lg:w-fit lg:max-w-sm max-w-full w-full">
         <CardTitle className="block mb-4">Быстрые действия</CardTitle>
         <div className="space-y-2">
           <Button type="button" className="w-full" onClick={markAllCompleted}>

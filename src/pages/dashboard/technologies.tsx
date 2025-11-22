@@ -20,7 +20,7 @@ export function TechnologiesPage() {
               <Link to="/add-technology">Добавить технологию</Link>
             </Button>
           </div>
-          <div className="mt-4 grid grid-cols-3 gap-3">
+          <div className="mt-4 grid lg:grid-cols-3 grid-cols-1 gap-3">
             {technologies.length === 0 && (
               <p className="text-sm">Нет технологий для отображения.</p>
             )}

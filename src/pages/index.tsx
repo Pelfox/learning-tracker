@@ -8,7 +8,7 @@ export function IndexPage() {
       <section className="w-full flex flex-col items-center justify-center gap-6">
         <div className="text-center space-y-2">
           <span className="block text-4xl mb-2">📝</span>
-          <h1 className="text-3xl font-semibold leading-tight">
+          <h1 className="lg:text-3xl text-2xl font-semibold leading-tight">
             Трекер обучения технологий
           </h1>
           <p>Отслеживайте свой прогресс обучения в простой и удобной форме!</p>

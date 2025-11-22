@@ -13,7 +13,7 @@ export function DashboardPage() {
   return (
     <PageWrapper>
       <ProtectedPage>
-        <header className="flex items-start justify-start w-full gap-3">
+        <header className="lg:flex items-start justify-start w-full gap-3 lg:space-y-0 space-y-4">
           <QuickActions />
           <ProgressIndicator />
         </header>
@@ -26,7 +26,7 @@ export function DashboardPage() {
               <Link to="/add-technology">Добавить технологию</Link>
             </Button>
           </div>
-          <div className="mt-4 grid grid-cols-3 gap-3">
+          <div className="mt-4 grid lg:grid-cols-3 grid-cols-1 gap-3">
             {technologies.length === 0 && (
               <p className="text-sm">Нет технологий для отображения.</p>
             )}

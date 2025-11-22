@@ -23,16 +23,16 @@ export default function App() {
       <TechnologiesContextProvider>
         <div className="min-h-screen flex flex-col">
           <NavbarContainer>
-            <span className="font-semibold text-lg cursor-pointer select-none">
+            <div className="font-semibold text-lg cursor-pointer select-none lg:text-left text-center lg:mb-0 mb-3">
               <Link to="/">📝 Трекер</Link>
-            </span>
+            </div>
             <NavbarMenuContainer>
               <NavbarMenuLink to="/dashboard">Панель управления</NavbarMenuLink>
               <NavbarMenuLink to="/technologies">Все технологии</NavbarMenuLink>
               <NavbarMenuLink to="/settings">Настройки</NavbarMenuLink>
               <NavbarMenuLink to="/statistics">Статистика</NavbarMenuLink>
             </NavbarMenuContainer>
-            <div>
+            <div className="lg:mt-0 mt-3 w-full">
               <LoginButton />
             </div>
           </NavbarContainer>

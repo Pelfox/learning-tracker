@@ -7,11 +7,15 @@ export function LoginButton() {
 
   if (!isLoggedIn || !authState) {
     return (
-      <Button asChild>
+      <Button asChild className="lg:w-fit w-full">
         <Link to="/login">Войти в аккаунт</Link>
       </Button>
     );
   }
 
-  return <Button onClick={() => logout()}>Выйти</Button>;
+  return (
+    <Button onClick={() => logout()} className="lg:w-fit w-full">
+      Выйти
+    </Button>
+  );
 }

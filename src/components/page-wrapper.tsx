@@ -9,7 +9,7 @@ export function PageWrapper({
     <main
       {...props}
       className={twMerge(
-        'container mx-auto max-w-5xl flex flex-col items-start justify-center mt-6',
+        'container mx-auto max-w-5xl flex flex-col items-start justify-center mt-6 lg:px-0 px-2',
         className,
       )}
     />
