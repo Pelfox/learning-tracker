@@ -6,7 +6,7 @@ export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
     <div
       {...props}
       className={twMerge(
-        'p-6 border border-neutral-200 rounded-xl space-y-4 max-w-sm',
+        'p-6 border border-neutral-200 rounded-xl space-y-4 max-w-sm bg-white',
         className,
       )}
     />
