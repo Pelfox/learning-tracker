@@ -14,6 +14,7 @@ import { TechnologiesPage } from './pages/dashboard/technologies';
 import { TechnologyPage } from './pages/dashboard/technology-page';
 import { LoginPage } from './pages/login';
 import { SettingsPage } from './pages/settings';
+import { StatisticsPage } from './pages/statistics';
 import './App.css';
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
               <NavbarMenuLink to="/dashboard">Панель управления</NavbarMenuLink>
               <NavbarMenuLink to="/technologies">Все технологии</NavbarMenuLink>
               <NavbarMenuLink to="/settings">Настройки</NavbarMenuLink>
+              <NavbarMenuLink to="/statistics">Статистика</NavbarMenuLink>
             </NavbarMenuContainer>
             <div>
               <LoginButton />
@@ -42,6 +44,7 @@ export default function App() {
             <Route path="/technologies/:id" element={<TechnologyPage />} />
             <Route path="/add-technology" element={<AddTechnologyPage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/statistics" element={<StatisticsPage />} />
           </Routes>
         </div>
       </TechnologiesContextProvider>
