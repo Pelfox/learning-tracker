@@ -32,7 +32,7 @@ export default function App() {
               <NavbarMenuLink to="/settings">Настройки</NavbarMenuLink>
               <NavbarMenuLink to="/statistics">Статистика</NavbarMenuLink>
             </NavbarMenuContainer>
-            <div className="lg:mt-0 mt-3 w-full">
+            <div className="lg:mt-0 mt-3 lg:w-fit w-full">
               <LoginButton />
             </div>
           </NavbarContainer>

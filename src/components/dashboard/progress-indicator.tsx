@@ -45,7 +45,11 @@ export function ProgressIndicator() {
         </p>
       </div>
       <ProgressBar
-        percentage={Math.round((completedCount / technologies.length) * 100)}
+        percentage={
+          technologies.length !== 0
+            ? Math.round((completedCount / technologies.length) * 100)
+            : 0
+        }
       />
     </Card>
   );
