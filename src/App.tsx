@@ -13,6 +13,7 @@ import { AddTechnologyPage } from './pages/dashboard/add-technology';
 import { TechnologiesPage } from './pages/dashboard/technologies';
 import { TechnologyPage } from './pages/dashboard/technology-page';
 import { LoginPage } from './pages/login';
+import { SettingsPage } from './pages/settings';
 import './App.css';
 
 export default function App() {
@@ -40,6 +41,7 @@ export default function App() {
             <Route path="/technologies" element={<TechnologiesPage />} />
             <Route path="/technologies/:id" element={<TechnologyPage />} />
             <Route path="/add-technology" element={<AddTechnologyPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </div>
       </TechnologiesContextProvider>

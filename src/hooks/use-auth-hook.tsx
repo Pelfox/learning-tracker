@@ -8,6 +8,7 @@ const AuthContext = createContext<{
   } | null;
 
   login: (username: string) => void;
+  update: (username: string) => void;
   logout: () => void;
 } | null>(null);
 
@@ -42,11 +43,17 @@ export function AuthContextProvider({ children }: PropsWithChildren) {
     setState({ isLoggedIn: true, state: { username } });
   }
 
+  function update(username: string) {
+    setState({ isLoggedIn: true, state: { username } });
+  }
+
   function logout() {
     setState({ isLoggedIn: false, state: null });
   }
 
   return (
-    <AuthContext value={{ ...state, login, logout }}>{children}</AuthContext>
+    <AuthContext value={{ ...state, login, update, logout }}>
+      {children}
+    </AuthContext>
   );
 }
