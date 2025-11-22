@@ -5,13 +5,15 @@ import { renderProgressBadge } from '../../components/dashboard/technology-item'
 import { PageWrapper } from '../../components/page-wrapper';
 import { ProtectedPage } from '../../components/protected-page';
 import { Button } from '../../components/ui/button';
-import { Card } from '../../components/ui/card';
+import { Card, CardTitle } from '../../components/ui/card';
 import { Input } from '../../components/ui/input';
+import { useApi } from '../../hooks/use-api-hook';
 import { useTechnologies } from '../../hooks/use-technologies-hook';
 
 export function TechnologyPage() {
   const params = useParams();
   const { technologies, updateTechnology } = useTechnologies();
+  const { isLoading, error, projects } = useApi();
 
   const formRef = useRef<HTMLFormElement>(null);
   const technology = technologies.find((tech) => tech.id === params.id);
@@ -112,6 +114,37 @@ export function TechnologyPage() {
             />
             <Button type="submit">Добавить заметку</Button>
           </form>
+        </Card>
+        <Card className="max-w-screen w-full mt-8">
+          <CardTitle className="text-lg">
+            Проекты с GitHub для этой технологии
+          </CardTitle>
+          {isLoading && <p>Загрузка проектов...</p>}
+          {error && <p>Ошибка: {error}</p>}
+          {projects.length === 0 && !isLoading && !error && (
+            <p>Ничего не найдено.</p>
+          )}
+          {!isLoading && !error && (
+            <div className="mt-4 grid grid-cols-3 gap-3">
+              {projects.map((project) => (
+                <a
+                  key={project.html_url}
+                  href={project.html_url}
+                  className="border border-neutral-200 rounded-lg p-4 hover:bg-neutral-50 transition-colors"
+                >
+                  <div className="w-full flex items-center justify-between">
+                    <h3 className="font-semibold text-lg">{project.name}</h3>
+                    <p className="text-xs font-medium text-neutral-500">
+                      {project.stargazers_count} ⭐
+                    </p>
+                  </div>
+                  <p className="text-sm text-neutral-600 mt-1">
+                    {project.description || 'Нет описания'}
+                  </p>
+                </a>
+              ))}
+            </div>
+          )}
         </Card>
       </ProtectedPage>
     </PageWrapper>
