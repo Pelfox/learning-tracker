@@ -1,4 +1,5 @@
 import type { FormEvent } from 'react';
+import { useState } from 'react';
 import { PageWrapper } from '../components/page-wrapper';
 import { ProtectedPage } from '../components/protected-page';
 import { Button } from '../components/ui/button';
@@ -8,6 +9,18 @@ import { useAuth } from '../hooks/use-auth-hook';
 
 export function SettingsPage() {
   const { state, update } = useAuth();
+  const [isDarkTheme, setDarkTheme] = useState(
+    localStorage.getItem('theme') === 'dark',
+  );
+
+  function handleThemeChange() {
+    const newDarkTheme = !isDarkTheme;
+    setDarkTheme(newDarkTheme);
+    localStorage.setItem('theme', newDarkTheme ? 'dark' : 'light');
+
+    document.documentElement.classList.toggle('dark', newDarkTheme);
+    window.dispatchEvent(new CustomEvent('themeChange'));
+  }
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -33,6 +46,14 @@ export function SettingsPage() {
           <h1 className="text-xl font-semibold leading-tight">Настройки</h1>
           <div className="mt-4">
             <form onSubmit={onSubmit} className="space-y-4">
+              <Field className="flex items-start">
+                <Label>Тёмная тема</Label>
+                <input
+                  type="checkbox"
+                  onChange={handleThemeChange}
+                  checked={isDarkTheme}
+                />
+              </Field>
               <Field>
                 <Label>Имя пользователя</Label>
                 <Input

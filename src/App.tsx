@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import { LoginButton } from './components/login-button';
 import { NavbarContainer } from './components/navbar/navbar-container';
@@ -18,10 +19,16 @@ import { StatisticsPage } from './pages/statistics';
 import './App.css';
 
 export default function App() {
+  const [theme, setTheme] = useState(localStorage.getItem('theme'));
+
+  window.addEventListener('themeChange', () => {
+    setTheme(localStorage.getItem('theme'));
+  });
+
   return (
     <AuthContextProvider>
       <TechnologiesContextProvider>
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col" data-theme={theme}>
           <NavbarContainer>
             <div className="font-semibold text-lg cursor-pointer select-none lg:text-left text-center lg:mb-0 mb-3">
               <Link to="/">📝 Трекер</Link>
