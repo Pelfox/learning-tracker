@@ -79,7 +79,7 @@ export function QuickActions() {
           <button
             type="button"
             onClick={() => dialogRef.current?.close()}
-            className="fixed top-3 right-3 cursor-pointer hover:bg-neutral-100 py-0.5 px-2 rounded-md transition-colors"
+            className="fixed top-3 right-3 cursor-pointer dark:text-white dark:hover:bg-neutral-800 hover:bg-neutral-100 py-0.5 px-2 rounded-md transition-colors"
           >
             &#10005;
           </button>
@@ -90,7 +90,7 @@ export function QuickActions() {
             </CardDescription>
           </CardHeader>
           <div>
-            <pre className="bg-neutral-50 border border-neutral-200 rounded-lg p-3 whitespace-pre-wrap break-words">
+            <pre className="dark:bg-neutral-800 bg-neutral-50 border dark:border-neutral-700 border-neutral-200 rounded-lg p-3 whitespace-pre-wrap break-words dark:text-white">
               {JSON.stringify(technologies, null, 2)}
             </pre>
           </div>

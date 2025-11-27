@@ -6,7 +6,7 @@ export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
     <div
       {...props}
       className={twMerge(
-        'p-6 border border-neutral-200 rounded-xl space-y-4 max-w-sm bg-white',
+        'p-6 border dark:border-neutral-800 border-neutral-200 rounded-xl space-y-4 max-w-sm dark:bg-neutral-900 bg-white',
         className,
       )}
     />
@@ -27,7 +27,10 @@ export function CardTitle({
   return (
     <h2
       {...props}
-      className={twMerge('text-xl font-semibold mb-0.5', className)}
+      className={twMerge(
+        'text-xl font-semibold mb-0.5 dark:text-white',
+        className,
+      )}
     />
   );
 }
@@ -36,5 +39,10 @@ export function CardDescription({
   className,
   ...props
 }: HTMLAttributes<HTMLParagraphElement>) {
-  return <p {...props} className={twMerge('text-sm', className)} />;
+  return (
+    <p
+      {...props}
+      className={twMerge('text-sm dark:text-neutral-300', className)}
+    />
+  );
 }

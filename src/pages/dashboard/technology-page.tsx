@@ -70,13 +70,13 @@ export function TechnologyPage() {
         </div>
         <Card className="max-w-screen w-full">
           <div>
-            <span className="text-sm font-bold text-neutral-500 tracking-tight block mb-0.5">
+            <span className="text-sm font-bold dark:text-neutral-300 text-neutral-500 tracking-tight block mb-0.5">
               ID
             </span>
             <p>{technology.id}</p>
           </div>
           <div>
-            <span className="text-sm font-bold text-neutral-500 tracking-tight block mb-0.5">
+            <span className="text-sm font-bold dark:text-neutral-300 text-neutral-500 tracking-tight block mb-0.5">
               Статус
             </span>
             <div className="w-fit">
@@ -84,13 +84,13 @@ export function TechnologyPage() {
             </div>
           </div>
           <div>
-            <span className="text-sm font-bold text-neutral-500 tracking-tight block mb-0.5">
+            <span className="text-sm font-bold dark:text-neutral-300 text-neutral-500 tracking-tight block mb-0.5">
               Описание технологии
             </span>
             <p>{technology.description}</p>
           </div>
           <div>
-            <span className="text-sm font-bold text-neutral-500 tracking-tight block mb-0.5">
+            <span className="text-sm font-bold dark:text-neutral-300 text-neutral-500 tracking-tight block mb-0.5">
               Заметки
             </span>
             {technology.comments.length === 0 && <p>Нет заметок.</p>}
@@ -98,7 +98,7 @@ export function TechnologyPage() {
               {technology.comments.map((comment, index) => (
                 <div
                   key={index}
-                  className="border border-neutral-200 rounded-md h-9 flex items-center px-3"
+                  className="border dark:border-neutral-800 border-neutral-200 rounded-md h-9 flex items-center px-3"
                 >
                   <span>{comment}</span>
                 </div>
@@ -130,15 +130,15 @@ export function TechnologyPage() {
                 <a
                   key={project.html_url}
                   href={project.html_url}
-                  className="border border-neutral-200 rounded-lg p-4 hover:bg-neutral-50 transition-colors"
+                  className="border dark:border-neutral-800 border-neutral-200 rounded-lg p-4 dark:hover:bg-neutral-800 hover:bg-neutral-50 transition-colors"
                 >
                   <div className="w-full flex items-center justify-between">
                     <h3 className="font-semibold text-lg">{project.name}</h3>
-                    <p className="text-xs font-medium text-neutral-500">
+                    <p className="text-xs font-medium dark:text-neutral-400 text-neutral-500">
                       {project.stargazers_count} ⭐
                     </p>
                   </div>
-                  <p className="text-sm text-neutral-600 mt-1">
+                  <p className="text-sm dark:text-neutral-300 text-neutral-600 mt-1">
                     {project.description || 'Нет описания'}
                   </p>
                 </a>

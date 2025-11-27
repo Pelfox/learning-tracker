@@ -9,7 +9,7 @@ export function Input({
     <input
       {...props}
       className={twMerge(
-        'text-sm h-9 px-3 border border-neutral-200 rounded-md outline-none transition-all focus-visible:border-cyan-300 focus-visible:ring-2 focus-visible:ring-cyan-300',
+        'text-sm h-9 px-3 border dark:border-neutral-800 border-neutral-200 rounded-md outline-none transition-all focus-visible:border-cyan-300 focus-visible:ring-2 focus-visible:ring-cyan-300',
         className,
       )}
     />

@@ -3,7 +3,7 @@ import { Card } from '../ui/card';
 
 function ProgressBar({ percentage }: { percentage: number }) {
   return (
-    <div className="relative h-8 w-full bg-transparent border border-neutral-200 rounded-xl z-50 overflow-hidden">
+    <div className="relative h-8 w-full bg-transparent border dark:border-neutral-600 border-neutral-200 rounded-xl z-50 overflow-hidden">
       <div
         className="h-8 bg-green-400 transition-all duration-300"
         style={{ width: `${percentage}%` }}

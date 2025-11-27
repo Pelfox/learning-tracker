@@ -14,7 +14,10 @@ export function Label({
   return (
     <label
       {...props}
-      className={twMerge('text-sm font-medium text-neutral-700', className)}
+      className={twMerge(
+        'text-sm font-medium dark:text-neutral-400 text-neutral-700',
+        className,
+      )}
     />
   );
 }

@@ -14,7 +14,7 @@ function ProgressBadge({
     <div
       {...props}
       className={twMerge(
-        'text-xs font-normal px-1.5 py-0.5 border border-neutral-200 rounded-full text-white',
+        'text-xs font-normal px-1.5 py-0.5 border dark:border-neutral-800 border-neutral-200 rounded-full text-white',
         className,
       )}
     />
@@ -91,7 +91,9 @@ export function TechnologyCard({
         </button>
       </div>
 
-      <p className="text-sm text-neutral-600">{description}</p>
+      <p className="text-sm dark:text-neutral-300 text-neutral-600">
+        {description}
+      </p>
       {renderProgressButton({ id, title, description, progress, comments })}
     </Card>
   );

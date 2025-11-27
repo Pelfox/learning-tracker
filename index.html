@@ -6,7 +6,16 @@
     <title>Отслеживание учебного прогресса</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root" class="dark:bg-neutral-950 dark:text-white"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || savedTheme === 'light') {
+        document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', prefersDark);
+      }
+    </script>
   </body>
 </html>
