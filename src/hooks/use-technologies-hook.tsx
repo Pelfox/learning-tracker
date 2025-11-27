@@ -14,6 +14,7 @@ const TechnologiesContext = createContext<{
   createTechnology: (item: TechnologyItem) => void;
   updateTechnology: (id: string, item: TechnologyItem) => void;
   deleteTechnology: (id: string) => void;
+  setTechnologies: (technologies: TechnologyItem[]) => void;
 } | null>(null);
 
 export function useTechnologies() {
@@ -62,6 +63,7 @@ export function TechnologiesContextProvider({ children }: PropsWithChildren) {
         createTechnology,
         updateTechnology,
         deleteTechnology,
+        setTechnologies,
       }}
     >
       {children}

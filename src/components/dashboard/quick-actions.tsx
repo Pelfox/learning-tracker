@@ -1,11 +1,23 @@
+import type { ChangeEvent } from 'react';
 import { useRef } from 'react';
 import { useTechnologies } from '../../hooks/use-technologies-hook';
 import { Button } from '../ui/button';
 import { Card, CardDescription, CardHeader, CardTitle } from '../ui/card';
 
 export function QuickActions() {
-  const { technologies, updateTechnology } = useTechnologies();
+  const { technologies, updateTechnology, setTechnologies } = useTechnologies();
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const importUnputRef = useRef<HTMLInputElement>(null);
+
+  async function onInputChange(event: ChangeEvent<HTMLInputElement>) {
+    if (!event.target.files || event.target.files.length === 0) {
+      return;
+    }
+
+    const uploadedFile = event.target.files[0];
+    const parsedUploadedFile = JSON.parse(await uploadedFile.text());
+    setTechnologies(parsedUploadedFile);
+  }
 
   function markAllCompleted() {
     technologies.forEach((item) => {
@@ -34,13 +46,29 @@ export function QuickActions() {
           <Button type="button" className="w-full" onClick={resetAll}>
             Сбросить все статусы
           </Button>
-          <Button
-            type="button"
-            className="w-full"
-            onClick={() => dialogRef.current?.showModal()}
-          >
-            Экспортировать данные
-          </Button>
+          <div className="grid grid-cols-2 gap-1">
+            <input
+              ref={importUnputRef}
+              type="file"
+              className="hidden"
+              accept="application/json"
+              onChange={onInputChange}
+            />
+            <Button
+              type="button"
+              className="w-full"
+              onClick={() => importUnputRef.current?.click()}
+            >
+              Импортировать данные
+            </Button>
+            <Button
+              type="button"
+              className="w-full"
+              onClick={() => dialogRef.current?.showModal()}
+            >
+              Экспортировать данные
+            </Button>
+          </div>
         </div>
       </Card>
       <dialog
