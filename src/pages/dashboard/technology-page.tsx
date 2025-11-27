@@ -13,10 +13,10 @@ import { useTechnologies } from '../../hooks/use-technologies-hook';
 export function TechnologyPage() {
   const params = useParams();
   const { technologies, updateTechnology } = useTechnologies();
-  const { isLoading, error, projects } = useApi();
 
   const formRef = useRef<HTMLFormElement>(null);
   const technology = technologies.find((tech) => tech.id === params.id);
+  const { isLoading, error, projects } = useApi(technology!.title);
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

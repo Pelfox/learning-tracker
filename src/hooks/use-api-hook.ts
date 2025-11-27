@@ -7,7 +7,7 @@ interface Repository {
   stargazers_count: number;
 }
 
-export function useApi() {
+export function useApi(query: string) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [repositories, setRepositories] = useState<Repository[]>([]);
@@ -15,7 +15,7 @@ export function useApi() {
   async function fetchRepositories() {
     setIsLoading(true);
     const response = await fetch(
-      'https://api.github.com/search/repositories?q=node.js',
+      `https://api.github.com/search/repositories?q=${query}`,
       {
         headers: {
           Accept: 'application/vnd.github+json',
