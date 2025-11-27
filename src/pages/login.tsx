@@ -12,6 +12,8 @@ import { Field, Label } from '../components/ui/form';
 import { Input } from '../components/ui/input';
 import { useAuth } from '../hooks/use-auth-hook';
 
+const usernameRegex = /^[a-z0-9]*$/;
+
 export function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -28,7 +30,14 @@ export function LoginPage() {
       return;
     }
 
-    login(username);
+    const trimmedUsername = username.trim();
+    if (trimmedUsername.length < 2 || !usernameRegex.test(trimmedUsername)) {
+      // eslint-disable-next-line no-alert
+      alert('Требуется указать валидное имя пользователя.');
+      return;
+    }
+
+    login(trimmedUsername);
     navigate('/dashboard');
   }
 
