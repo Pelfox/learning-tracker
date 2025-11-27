@@ -12,7 +12,7 @@ import { Field, Label } from '../components/ui/form';
 import { Input } from '../components/ui/input';
 import { useAuth } from '../hooks/use-auth-hook';
 
-const usernameRegex = /^[a-z0-9]*$/;
+const usernameRegex = /^\w*$/;
 
 export function LoginPage() {
   const { login } = useAuth();
